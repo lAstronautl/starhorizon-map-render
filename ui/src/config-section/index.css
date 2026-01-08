@@ -1,0 +1,77 @@
+.ConfigSectionWrapper {
+  flex: none;
+  align-self: stretch;
+  position: sticky;
+  top: 0;
+}
+
+.ConfigSection {
+  width: 0;
+  height: 100%;
+  overflow: hidden;
+
+  &-open {
+    width: min(92ch, 50vw);
+    box-shadow: -2px 0 8px var(--shadow-color);
+  }
+
+  &-animating {
+    transition-property: width, box-shadow;
+    transition-timing-function: ease;
+    transition-duration: 250ms;
+
+    &-open {
+      transition-timing-function: ease-out;
+    }
+  }
+}
+
+.ConfigToggle {
+  position: absolute;
+  top: 16px;
+  right: calc(100% + 16px);
+  box-shadow: 0 2px 8px var(--shadow-color);
+  transition: opacity 75ms ease-in-out;
+
+  .ConfigSection-open + &,
+  .ConfigSection-animating:not(.ConfigSection-open) + & {
+    opacity: 0;
+  }
+
+  .ConfigSection-open:not(.ConfigSection-animating) + & {
+    display: none;
+  }
+}
+
+.ConfigSectionContent {
+  box-sizing: border-box;
+  width: min(92ch, 50vw);
+  height: 100%;
+  overflow: auto;
+  overscroll-behavior: contain;
+  background-color: var(--box-bg);
+}
+
+.ConfigSectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--box-bg-header);
+  box-shadow: 0 2px 8px var(--shadow-color);
+
+  > .Spacer {
+    margin-inline: -4px;
+  }
+
+  > button:last-child {
+    margin-right: -4px;
+  }
+}
+
+.ConfigStatus {
+  flex: 1 1 auto;
+}

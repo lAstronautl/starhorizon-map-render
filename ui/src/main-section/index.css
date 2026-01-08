@@ -1,0 +1,131 @@
+.Main {
+  flex: 1 1 auto;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+
+.MainContent {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+  padding: 16px;
+  gap: 16px;
+  width: 100%;
+  max-width: min(920px, 100% - 32px);
+
+  > .Spacer {
+    margin-block: -8px;
+  }
+
+  > .DropZone {
+    margin-inline: auto;
+    max-width: 720px;
+    width: 100%;
+  }
+}
+
+.MapLoadError {
+  display: flex;
+  gap: 8px;
+  margin-inline: auto;
+  align-items: center;
+  width: calc(100% - 16px);
+  max-width: 720px;
+}
+
+.FileInfoHeading {
+  margin-top: 16px;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.RenderedGrid {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--box-border);
+  border-radius: 7px;
+  background-color: var(--box-bg);
+  box-shadow: 0 2px 8px var(--shadow-color);
+
+  @supports (corner-shape: bevel) {
+    border-radius: 0 9px 0 9px;
+    corner-shape: bevel;
+  }
+}
+
+.RenderedGridHeader {
+  flex: none;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  background-color: var(--box-bg-header);
+
+  @supports (corner-shape: bevel) {
+    border-radius: 0 8px 0 0;
+    corner-shape: bevel;
+  }
+
+  > .Spacer {
+    margin-inline: -4px;
+  }
+
+  > button {
+    margin-block: -4px;
+
+    &:last-child {
+      margin-right: -4px;
+    }
+  }
+}
+
+.RenderedGridToolbar {
+  display: flex;
+  gap: 48px;
+  padding: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.RenderedGridTool {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.RotationAngle {
+  min-width: 3.75ch;
+  text-align: right;
+}
+
+.RenderedGridContent {
+  flex: none;
+  align-self: center;
+  margin: 8px;
+  position: relative;
+}
+
+.RenderedGridGuidebookPage {
+  position: absolute;
+  background-color: #252725;
+}
+
+.RenderedGridImage {
+  display: block;
+  position: relative;
+  z-index: 1;
+  image-rendering: pixelated;
+}
+
+.RenderedGridWarning {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,27 @@
+{
+  "name": "frontier-map-renderer-backend",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "rollup -c rollup.config.mjs",
+    "clean": "rimraf dist",
+    "dev": "cross-env NODE_ENV=development rollup -w -c rollup.config.mjs"
+  },
+  "dependencies": {
+    "arg": "^5.0.2",
+    "base64-js": "^1.5.1",
+    "yaml": "^2.8.2"
+  },
+  "devDependencies": {
+    "jimp": "^1.6.0"
+  },
+  "peerDependencies": {
+    "jimp": "^1.6.0"
+  }
+}
