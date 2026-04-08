@@ -70,7 +70,7 @@ export default function MainSection({
         {spacer}
         {file && <>
           <h2 class='FileInfoHeading'>
-            {file.name || '(безымянный файл)'} &ndash; {file.grids.length === 1 ? '1 сетка' : `${file.grids.length} сеток`}
+            {file.name || '(безымянный файл)'} &ndash; {file.grids.length === 1 ? '1 грид' : `${file.grids.length} сеток`}
           </h2>
           {file.grids.map(grid =>
             <RenderedGrid

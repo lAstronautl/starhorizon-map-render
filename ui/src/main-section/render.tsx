@@ -117,7 +117,7 @@ export default function RenderedGrid({
   return (
     <section class='RenderedGrid'>
       <div class='RenderedGridHeader'>
-        <span>Сетка UID {grid.uid}: {grid.name ?? '(безымянная)'}</span>
+        <span>Грид UID {grid.uid}: {grid.name ?? '(безымянная)'}</span>
         <span class='Spacer'/>
         <ZoomInIcon/>
         <span>Масштаб:</span>
