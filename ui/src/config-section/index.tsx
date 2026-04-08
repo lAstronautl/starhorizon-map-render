@@ -44,18 +44,18 @@ export default function ConfigSection({
             {parseError == null && <>
               <CheckIcon class='Success'/>
               <span class='ConfigStatus Success'>
-                Valid configuration
+                Работает
               </span>
             </>}
             {parseError != null && <>
               <ErrorIcon class='Error'/>
               <span class='ConfigStatus Error'>
-                Parse error: {parseError}
+                Иди чини: {parseError}
               </span>
             </>}
             <span class='Spacer'/>
             <button onClick={toggleOpen}>
-              <span>Close</span>
+              <span>Закрыть</span>
               <CloseIcon/>
             </button>
           </div>
@@ -67,7 +67,7 @@ export default function ConfigSection({
       </section>
       <button class='ConfigToggle' onClick={toggleOpen}>
         <ConfigIcon />
-        <span>Configure</span>
+        <span>Конфигурация</span>
       </button>
     </div>
   );

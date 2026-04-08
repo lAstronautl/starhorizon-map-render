@@ -56,21 +56,21 @@ export default function MainSection({
         {spacer}
         <DropZone onDrop={handleOpenFile}>
           {file === null ? <>
-            <span>Drop a map file here to open it</span>
+            <span>Перетащите файл карты сюда</span>
             <DropZoneDivider/>
-            <span>Click to browse</span>
-          </> : <span>Open another map file</span>}
+            <span>Нажмите для выбора</span>
+          </> : <span>Открыть другой файл карты</span>}
         </DropZone>
         {error != null && (
           <div class='MapLoadError Error'>
             <ErrorIcon/>
-            <p>Could not load file: {error}</p>
+            <p>Не удалось загрузить файл: {error}</p>
           </div>
         )}
         {spacer}
         {file && <>
           <h2 class='FileInfoHeading'>
-            {file.name || '(unknown file name)'} &ndash; {file.grids.length === 1 ? '1 grid' : `${file.grids.length} grids`}
+            {file.name || '(безымянный файл)'} &ndash; {file.grids.length === 1 ? '1 сетка' : `${file.grids.length} сеток`}
           </h2>
           {file.grids.map(grid =>
             <RenderedGrid

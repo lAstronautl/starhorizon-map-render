@@ -117,12 +117,12 @@ export default function RenderedGrid({
   return (
     <section class='RenderedGrid'>
       <div class='RenderedGridHeader'>
-        <span>Grid UID {grid.uid}: {grid.name ?? '(unnamed)'}</span>
+        <span>Сетка UID {grid.uid}: {grid.name ?? '(безымянная)'}</span>
         <span class='Spacer'/>
         <ZoomInIcon/>
-        <span>Zoom:</span>
+        <span>Масштаб:</span>
         <button
-          title='Zoom out'
+          title='Уменьшить'
           disabled={zoom === MinZoom}
           onClick={() => setZoom(z => Math.max(MinZoom, z - 1))}
         >
@@ -132,7 +132,7 @@ export default function RenderedGrid({
           {100 * zoom}%
         </span>
         <button
-          title='Zoom in'
+          title='Увеличить'
           disabled={zoom === MaxZoom}
           onClick={() => setZoom(z => Math.min(MaxZoom, z + 1))}
         >
@@ -141,15 +141,15 @@ export default function RenderedGrid({
         <span/>
         <button onClick={handleSave}>
           <DownloadIcon/>
-          <span>Save image</span>
+          <span>Сохранить изображение</span>
         </button>
       </div>
       <div class='RenderedGridToolbar'>
         <div class='RenderedGridTool'>
           <ScaleIcon/>
-          <span>Scale:</span>
+          <span>Увеличение:</span>
           <button
-            title='Decrease scale'
+            title='Уменьшить'
             disabled={scale === MinScale}
             onClick={() => setScale(s => Math.max(MinScale, s - 1))}
           >
@@ -157,7 +157,7 @@ export default function RenderedGrid({
           </button>
           <span>{scale}x</span>
           <button
-            title='Increase scale'
+            title='Увеличить'
             disabled={scale === MaxScale}
             onClick={() => setScale(s => Math.min(MaxScale, s + 1))}
           >
@@ -165,16 +165,16 @@ export default function RenderedGrid({
           </button>
         </div>
         <div class='RenderedGridTool'>
-          <span>Rotate:</span>
+          <span>Поворот:</span>
           <button
-            title='Rotate left (counterclockwise)'
+            title='Повернуть влево'
             onClick={() => setRotation(rotateLeft)}
           >
             <RotateLeftIcon/>
           </button>
           <span class='RotationAngle'>{90 * rotation}°</span>
           <button
-            title='Rotate right (clockwise)'
+            title='Повернуть вправо'
             onClick={() => setRotation(rotateRight)}
           >
             <RotateRightIcon/>
@@ -204,7 +204,7 @@ export default function RenderedGrid({
       {isTooBigForGuidebook && (
         <div class='RenderedGridWarning'>
           <WarningIcon/>
-          <span>Too big for guidebook image!</span>
+          <span>Слишком большое изображение для гайдбука!</span>
         </div>
       )}
     </section>

@@ -119,7 +119,7 @@ function getDroppedFile(e: DragEvent): File | null {
 }
 
 export function DropZoneDivider({
-  children = 'or',
+  children = 'или',
 }: PropsWithChildren) {
   return <span class='DropZoneDivider'>{children}</span>;
 }
