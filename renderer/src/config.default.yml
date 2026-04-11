@@ -1,62 +1,49 @@
-# Tiles are tried in *reverse* order. You can think of the
-# first tile as being "less specific", and later tiles can
-# "override" previous ones.
-#
-# Note that unlike entities, each grid square has exactly
-# one tile type; there can never be more than one per grid
-# position.
+# Работает по системе наложения
+# То есть самый последний тайл налаживается на первый
+
 tiles:
-  # The default floor color.
-  # Since there is no condition, *all* tiles match this by
-  # default.
+  # Цвет пола по умолчанию.
+  # Поскольку в условие не добавлены другие тайлы то считаются все тайлы
   - color: "#22b14c"
-  # Lattice and plating.
-  # Note: These only match *exposed* lattice and plating.
+  # Покрытие и решётка
   - color: "#847e87"
     match:
     - "Lattice"
     - "Plating"
 
-# Like tiles, entities are tried in *reverse* order. You can
-# think of the first entry as being "less specific", and later
-# entities can "paint over" previous ones.
-#
-# Unlike tiles, there can be many entities on a single tile.
-# It's not uncommon to have a window with shutters, or an
-# airlock with a firelock under it. That is why the "more
-# important" entities can override "less important" ones.
-#
-# Pay close attention to the asterisks (*) in most of these.
+# Энтити работают как и тайлы по системе наложения
+# Будет отображатся самая последняя сущность
+# То есть если например на 1 тайле будет пожарный и обычный шлюз то по приоретету будет отображатся только обычный шлюз
+# Обратите особое внимание на звёздочки (*)
+# из них.
 entities:
-  # Walls. They're walls, man.
+  # Стена - Самый не приорететный
   - color: "#595652"
     match:
     - "*Wall"
-  # Firelocks, handy as "loose" room dividers for some maps.
-  # Overridden by airlocks when placed under them.
+  # Пожарные шлюзы
   - color: "#08862d"
     match:
     - "Firelock"
     - "FirelockGlass"
-  # Shutters and blast doors, often used for exterior access.
-  # Overridden by windows when placed on them.
+  # Ставни и гермозавторы
   - color: "#df7126"
     match:
     - "Shutters*"
     - "BlastDoor*"
-  # Windows.
+  # Окна
   - color: "#639bff"
     match:
     - "*Window*"
     exclude:
-    - "Shutters*" # window shutters
-  # Airlocks.
+    - "Shutters*"
+  # Шлюзы
   - color: "#df7126"
     match:
     - "Airlock*"
     - "Windoor*"
     - "Gaslock"
-  # Thrusters!
+  # Двигатели - Самый приорететный
   - color: "#fbf236"
     match:
     - "Thruster*"
